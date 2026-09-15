@@ -12,9 +12,9 @@ A mandatory email OTP is also required to complete and secure event ticket booki
 User: Browse events, submit ticket booking requests via OTP, check pending status from a personal dashboard, and cancel bookings as needed.
 - **Event Management**Create free and paid events complete with detailed descriptions, external image URLs, dates, categories, and seating capacity.
 - **Smart Booking System**:
-  - Mandatory 2FA OTP to authorize a booking request.
-  - All booking requests (both free and paid) enter a secure 'Pending' queue for Admin verification.
-  - Seat availability accurately updates and securely validates against overbooking logic.
+  A mandatory 2FA OTP is required to authorize each booking request.
+Every booking request, free or paid, enters a secure "Pending" queue awaiting admin verification.
+Seat availability updates accurately and is validated against overbooking logic to prevent double-booking.
 - **Admin Analytics Dashboard**: Track live data such as Pending Requests, Total Revenue, and Total Confirmed Paid Clients directly from the admin panel.
 - **Email Notifications**: Automated email delivery upon successful booking confirmation using Nodemailer.
 - **Sleek UI/UX**: Built entirely with React, Tailwind CSS, and polished with micro-interactions.

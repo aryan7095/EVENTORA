@@ -11,9 +11,9 @@ MongoDB Atlas provides a fully managed, free cloud database. This is where `mong
 1. **Sign Up / Log In**:
    - Go to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register) MongoDB Atlas and set up a free account.
 2. **Create a Cluster**:
-   - Once logged in, click **"Build a Database"** or **"Create Cluster"**.
-   - Select the **"M0 Sandbox" (Free Tier)** option.
-   - Choose a provider (e.g., AWS, Google Cloud) and click **Create** (no credit card required).
+   - After logging in, click "Build a Database" or "Create Cluster".
+Select the "M0 Sandbox" (Free Tier) option.
+Pick a provider (e.g., AWS, Google Cloud) and click Create (no credit card needed).
 3. **Set Up Database Access (Credentials)**:
    - On the left sidebar, click **"Database Access"**.
    - Click **"Add New Database User"**.

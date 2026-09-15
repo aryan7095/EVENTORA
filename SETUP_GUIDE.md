@@ -1,6 +1,6 @@
 # Complete Setup Guide: MongoDB Atlas & Application Configuration
 
-This guide will walk you through exactly how to set up your backend dependencies, including MongoDB Atlas (the remote cloud database), followed by starting up the application.
+This guide will walk you through the exact steps to set up your backend dependencies — including MongoDB Atlas, the remote cloud database — before getting the application up and running.
 
 ---
 

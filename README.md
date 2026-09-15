@@ -4,9 +4,9 @@ Eventora is a full-stack MERN application that lets users effortlessly browse, s
 
 ## Features
 - **User Authentication: Secure sign-in and account creation powered by JWT and bcrypt.
-- **2FA OTP Verification**: 
-  - Mandatory Email OTP to activate your account upon Registration (or delayed login attempts).
-  - Mandatory Email OTP to finalize and secure event ticket booking.
+- **2FA OTP Verification:
+A mandatory email OTP is required to activate your account after registration (or if login attempts are delayed).
+A mandatory email OTP is also required to complete and secure event ticket bookings.
 - **Role-Based Access**: 
   - **Admin**: Create, edit, and delete events. Confirm and reject all incoming booking requests, mark them as 'Paid' or 'Not Paid'. Access is strictly locked to database-flagged users only.
   - **User**: Browse events, submit ticket booking requests via OTP, view personal dashboard pending status, and cancel bookings.

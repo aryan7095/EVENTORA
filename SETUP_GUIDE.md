@@ -9,7 +9,7 @@ This guide will walk you through the exact steps to set up your backend dependen
 MongoDB Atlas provides a fully managed, free cloud database. This is where `mongoose` will store all your `Users`, `Events`, and `Bookings`.
 
 1. **Sign Up / Log In**:
-   - Go to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register) and create a free account.
+   - Go to [MongoDB Atlas](https://www.mongodb.com/cloud/atlas/register) MongoDB Atlas and set up a free account.
 2. **Create a Cluster**:
    - Once logged in, click **"Build a Database"** or **"Create Cluster"**.
    - Select the **"M0 Sandbox" (Free Tier)** option.

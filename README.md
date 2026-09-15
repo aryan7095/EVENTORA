@@ -3,7 +3,7 @@
 Eventora is a full-stack MERN application that lets users effortlessly browse, sign up for, and pay for events natively, with no reliance on third-party tools. It includes an admin dashboard where event organizers can create and manage both free and paid events. Admins can also manually manage all bookings to handle payments directly.
 
 ## Features
-- **User Authentication**: Secure login & registration with JWT and bcrypt.
+- **User Authentication: Secure sign-in and account creation powered by JWT and bcrypt.
 - **2FA OTP Verification**: 
   - Mandatory Email OTP to activate your account upon Registration (or delayed login attempts).
   - Mandatory Email OTP to finalize and secure event ticket booking.

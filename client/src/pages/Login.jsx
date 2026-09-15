@@ -3,13 +3,18 @@ import { AuthContext } from '../context/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
 
 const Login = () => {
+    // Form field states
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [otp, setOtp] = useState('');
+    // Whether to show the OTP step instead of the email/password form
+    // (true when the account isn't verified yet and needs OTP confirmation)
     const [showOTP, setShowOTP] = useState(false);
     const [error, setError] = useState('');
+    // Tracks in-flight submit request (disables button, shows "Processing...")
     const [loading, setLoading] = useState(false);
 
+    // Auth context functions: login with email/password, or verify via OTP
     const { login, verifyOTP } = useContext(AuthContext);
     const navigate = useNavigate();
 
@@ -19,19 +24,25 @@ const Login = () => {
         setError('');
         try {
             if (!showOTP) {
+                // Normal login attempt with email + password
                 const data = await login(email, password);
+                // Redirect based on user role after successful login
                 if (data.role === 'admin') navigate('/admin');
                 else navigate('/dashboard');
             } else {
+                // OTP verification step (used when account needed verification)
                 const data = await verifyOTP(email, otp);
                 if (data.role === 'admin') navigate('/admin');
                 else navigate('/dashboard');
             }
         } catch (err) {
             if (err.needsVerification) {
+                // Login failed because account isn't verified yet —
+                // switch to OTP entry mode; backend has already sent a new OTP
                 setShowOTP(true);
                 setError('Account not verified. A new OTP has been sent to your email.');
             } else {
+                // Generic login/verification error
                 setError(err.message || err);
             }
         } finally {
@@ -46,9 +57,12 @@ const Login = () => {
                 <p className="text-gray-500">Sign in to your Eventora account</p>
             </div>
 
+            {/* Error banner, shown for both login and OTP verification failures */}
             {error && <div className="bg-red-50 text-red-600 p-3 rounded-lg mb-6 text-center shadow-inner border border-red-100">{error}</div>}
 
             <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Toggle between the email/password form and the OTP input,
+                    depending on whether verification is required */}
                 {!showOTP ? (
                     <>
                         <div>
@@ -86,6 +100,7 @@ const Login = () => {
                         />
                     </div>
                 )}
+                {/* Submit button label changes based on current step and loading state */}
                 <button
                     type="submit"
                     disabled={loading}
@@ -95,6 +110,7 @@ const Login = () => {
                 </button>
             </form>
 
+            {/* Link to registration page for users without an account */}
             <p className="text-center mt-8 text-gray-600">
                 Don't have an account? <Link to="/register" className="text-gray-900 font-bold hover:underline">Sign up</Link>
             </p>

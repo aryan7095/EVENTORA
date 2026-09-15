@@ -37,7 +37,7 @@ Pick a provider (e.g., AWS, Google Cloud) and click Create (no credit card neede
 
 ## Step 2: Set Up Gmail App Passwords (For Nodemailer)
 
-To send emails automatically (booking confirmations), you need to configure an App Password for your Gmail account. Normal passwords won't work because of 2FA.
+To automatically send emails (booking confirmations), you'll need to configure an App Password for your Gmail account — regular passwords won't work due to 2FA restrictions.
 
 1. Go to your [Google Account Manage page](https://myaccount.google.com/).
 2. Navigate to the **Security** tab on the left.

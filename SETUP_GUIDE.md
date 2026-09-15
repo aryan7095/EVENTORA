@@ -50,7 +50,7 @@ To automatically send emails (booking confirmations), you'll need to configure a
 
 ## Step 3: Configure the Environment Variables (`.env`)
 
-Now that you have your credentials, you need to plug them into the backend. Open the file located at `server/.env` and paste your values:
+Now that you've got your credentials, it's time to plug them into the backend. Open the file at server/.env and paste in your values:
 
 ```env
 # Paste the MongoDB string you generated (make sure you swapped the password)

@@ -14,7 +14,7 @@ User: Browse events, submit ticket booking requests via OTP, check pending statu
 - **Smart Booking System**:
  Every booking request requires a mandatory 2FA OTP for authorization and enters a secure "Pending" queue awaiting admin verification, whether the event is free or paid. Seat availability is updated in real time and checked against overbooking logic to prevent double-booking.
 - **Admin Analytics Dashboard**: Monitor live metrics — including pending requests, total revenue, and total confirmed paid clients — directly from the admin panel.
-- **Email Notifications**: Automated email delivery upon successful booking confirmation using Nodemailer.
+- **Email Notifications**: Automated confirmation emails sent via Nodemailer once a booking is successfully approved.
 - **Sleek UI/UX**: Built entirely with React, Tailwind CSS, and polished with micro-interactions.
 
 ---

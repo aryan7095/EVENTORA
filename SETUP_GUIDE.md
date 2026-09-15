@@ -15,7 +15,7 @@ MongoDB Atlas provides a fully managed, free cloud database. This is where `mong
 Select the "M0 Sandbox" (Free Tier) option.
 Pick a provider (e.g., AWS, Google Cloud) and click Create (no credit card needed).
 3. **Set Up Database Access (Credentials)**:
-   - On the left sidebar, click **"Database Access"**.
+   - From the left sidebar, click "Database Access".
    - Click **"Add New Database User"**.
    - Choose **Password** authentication.
    - Set a Username (e.g., `eventoradmin`) and a Password (e.g., `eventorapassword`). **Remember these.**

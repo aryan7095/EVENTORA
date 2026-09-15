@@ -1,13 +1,21 @@
+/* Injects Tailwind's base/reset styles, component classes, and utility classes */
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
 body {
+  /* Remove default browser margin on the body */
   margin: 0;
+  /* System font stack: uses the OS's native UI font across platforms
+     (San Francisco on Apple, Segoe UI on Windows, Roboto on Android, etc.),
+     falling back to other common sans-serif fonts */
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
+  /* Smoother font rendering on WebKit/Blink browsers */
   -webkit-font-smoothing: antialiased;
+  /* Smoother font rendering on Firefox (macOS) */
   -moz-osx-font-smoothing: grayscale;
+  /* Light gray page background (matches Tailwind's gray-50) */
   background-color: #f9fafb;
 }

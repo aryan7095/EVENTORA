@@ -1,8 +1,10 @@
 const nodemailer = require('nodemailer');
 const dotenv = require('dotenv');
 
+// Load environment variables (EMAIL_USER, EMAIL_PASS) from .env
 dotenv.config();
 
+// Configure the email transport using Gmail as the SMTP service
 const transporter = nodemailer.createTransport({
     service: 'gmail',
     auth: {
@@ -11,6 +13,7 @@ const transporter = nodemailer.createTransport({
     }
 });
 
+// Sends a booking confirmation email once an admin approves a booking
 const sendBookingEmail = async (userEmail, userName, eventTitle) => {
     try {
         const mailOptions = {
@@ -26,12 +29,16 @@ const sendBookingEmail = async (userEmail, userName, eventTitle) => {
         await transporter.sendMail(mailOptions);
         console.log('Email sent successfully to', userEmail);
     } catch (error) {
+        // Errors are logged but not thrown, so email failures don't break the calling flow
         console.error('Error sending email:', error);
     }
 };
 
+// Sends an OTP email, with subject/message tailored to the OTP's purpose
+// (account verification vs. event booking verification)
 const sendOTPEmail = async (userEmail, otp, type) => {
     try {
+        // Pick subject line and body message based on OTP type
         const title = type === 'account_verification' ? 'Verify your Eventora Account' : 'Eventora Booking Verification';
         const msg = type === 'account_verification'
             ? 'Please use the following OTP to verify your new Eventora account.'
@@ -41,6 +48,7 @@ const sendOTPEmail = async (userEmail, otp, type) => {
             from: process.env.EMAIL_USER,
             to: userEmail,
             subject: title,
+            // Inline-styled HTML email displaying the OTP prominently, with an expiry notice
             html: `
                 <div style="font-family: Arial, sans-serif; text-align: center; padding: 20px;">
                     <h2 style="color: #111;">${title}</h2>
@@ -55,6 +63,7 @@ const sendOTPEmail = async (userEmail, otp, type) => {
         await transporter.sendMail(mailOptions);
         console.log(`OTP sent to ${userEmail} for ${type}`);
     } catch (error) {
+        // Errors are logged but not thrown, so email failures don't break the calling flow
         console.error('Error sending OTP email:', error);
     }
 };

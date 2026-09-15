@@ -10,7 +10,7 @@ A mandatory email OTP is also required to complete and secure event ticket booki
 - **Role-Based Access**: 
   -Admin: Create, edit, and remove events. Approve or decline incoming booking requests, and mark each one as "Paid" or "Not Paid." Access is restricted solely to users flagged as admins in the database.
 User: Browse events, submit ticket booking requests via OTP, check pending status from a personal dashboard, and cancel bookings as needed.
-- **Event Management**: Create free and paid events with detailed descriptions, external image URLs, dates, categories, and seating capacity.
+- **Event Management**Create free and paid events complete with detailed descriptions, external image URLs, dates, categories, and seating capacity.
 - **Smart Booking System**:
   - Mandatory 2FA OTP to authorize a booking request.
   - All booking requests (both free and paid) enter a secure 'Pending' queue for Admin verification.

@@ -3,14 +3,18 @@ import { AuthContext } from '../context/AuthContext';
 import { useNavigate, Link } from 'react-router-dom';
 
 const Register = () => {
+    // Form field states
     const [name, setName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const [otp, setOtp] = useState('');
+    // Whether to show the OTP verification step (true after successful registration)
     const [showOTP, setShowOTP] = useState(false);
     const [error, setError] = useState('');
+    // Tracks in-flight submit request (disables button, shows "Processing...")
     const [loading, setLoading] = useState(false);
 
+    // Auth context functions: register a new account, then verify via OTP
     const { register, verifyOTP } = useContext(AuthContext);
     const navigate = useNavigate();
 
@@ -20,10 +24,13 @@ const Register = () => {
         setError('');
         try {
             if (!showOTP) {
+                // Step 1: create the account, then switch to OTP entry
+                // (backend sends an OTP to the user's email upon registration)
                 await register(name, email, password);
                 setShowOTP(true);
                 setError('');
             } else {
+                // Step 2: verify the OTP to activate the account and log the user in
                 await verifyOTP(email, otp);
                 navigate('/dashboard');
             }
@@ -41,9 +48,12 @@ const Register = () => {
                 <p className="text-gray-500">Join Eventora today</p>
             </div>
 
+            {/* Error banner, shown for registration or OTP verification failures */}
             {error && <div className="bg-red-50 text-red-600 p-3 rounded-lg mb-6 text-center shadow-inner border border-red-100">{error}</div>}
 
             <form onSubmit={handleSubmit} className="space-y-5">
+                {/* Toggle between the registration form and the OTP input,
+                    depending on whether the account has been created yet */}
                 {!showOTP ? (
                     <>
                         <div>
@@ -79,6 +89,7 @@ const Register = () => {
                     </>
                 ) : (
                     <div>
+                        {/* Informational note confirming the OTP was sent */}
                         <p className="text-sm text-green-700 bg-green-50 p-3 mb-4 rounded border border-green-200">
                             An OTP has been sent to your email. Please verify your account.
                         </p>
@@ -95,6 +106,7 @@ const Register = () => {
                     </div>
                 )}
 
+                {/* Submit button label changes based on current step and loading state */}
                 <button
                     type="submit"
                     disabled={loading}
@@ -104,6 +116,8 @@ const Register = () => {
                 </button>
             </form>
 
+            {/* Only show the "already have an account" link before OTP step begins,
+                since once showOTP is true the user is mid-registration */}
             {!showOTP && (
                 <p className="text-center mt-6 text-gray-600">
                     Already have an account? <Link to="/login" className="text-gray-900 font-bold hover:underline">Sign in</Link>
